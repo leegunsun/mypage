@@ -1,13 +1,51 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const Test = styled.div`
+  background-color: ${(props) => props.color};
+  padding: ${(props) => props.padding}px;
+  animation: ${rotate} 2s linear forwards;
+`;
 
 const link = styled(Link)`
   padding: 10px;
-  font-size: 1.5rem;
+  font-size: 24px;
   color: black;
   font-weight: bold;
   text-decoration-line: none;
   margin-bottom: 10px;
+
+  &:hover {
+    color: gray;
+  }
+  &:active {
+    color: black;
+  }
+
+  animation-duration: 2s;
+  animation-name: slidein;
+  animation-fill-mode: backwards; // Add this line
+
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
 `;
 
 const linkContainer = styled.div`
@@ -23,13 +61,12 @@ const mainContainer = styled.div``;
 const titleContainer = styled.h4`
   margin-left: 20px;
   width: 100%;
-  /* height: 10vh; // 뷰포트의 높이를 100%로 설정 */
 `;
 
 const HeaderImage = styled.img`
-  // 원하는 스타일링을 여기에 추가하세요.
-  // 예를 들어, 너비를 100%로 설정하려면 아래와 같이 작성하세요.
-  width: 100%;
+  width: 100%; // width is set to 100% to adjust with browser width
+  height: 200px; // height is set to a fixed value
+  object-fit: cover; // object-fit is set to cover to maintain the aspect ratio
 `;
 
 const wrapContainer = styled.div`
@@ -44,7 +81,7 @@ const imgText = styled.p`
   left: 50%;
   width: 100%;
   text-align: center;
-  font-size: 5rem;
+  font-size: 80px;
   font-weight: bold;
 `;
 
