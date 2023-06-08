@@ -31,7 +31,7 @@ const link = styled(Link)`
     color: black;
   }
 
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-name: slidein;
   animation-fill-mode: backwards; // Add this line
 
